@@ -1,1 +1,1 @@
-web: gunicorn usc.wsgi
+web: gunicorn usctaskmate.wsgi
