@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Quotes - USC Taskmate</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+      </br> </br>
+    {% if quotes %}
+    <center><h1 style="text-transform: uppercase; font-size:25px; letter-spacing: .2em;">Quotes<hr></h1></center>
+    {% for obj in quotes %}
+    <div class="card mb-3">
+    <ul class="mt-2">    
+    <li><b>Assembly Name:</b> {{ obj.assembly }}</li>
+    <li><b>Date Posted:</b> {{ obj.date_posted }}</li>
+    <li><b>Comments:</b> {{ obj.comment }}</li>
+    <a href="{{obj.quote_file.url}}"class="float-center btn btn-info mt-1"><b>Download </b></a>  
+    </ul>
+  </div>
+    <hr>
+    {% endfor %}
+   
+    
+    {% else %}
+    
+   
+    
+   <center> <h2>Quotes are Coming soon!</h2></center>
+    
+    {% endif %}
+
+
+    <nav aria-label="Page navigation example">                
+        <ul class="pagination justify-content-end">
+            <li class="page-item"> <a class="page-link" href="?pg=1"><<</a></li>
+            {% if quotes.has_previous %}
+                <li class="page-item"><a class="page-link" href="?pg={{ quotes.previous_page_number }}">{{ quotes.previous_page_number }}</a></li>
+            {% endif %}
+    
+            <li class="page-item"><a class="page-link" href="?pg={{ quotes.number }}">{{ quotes.number }}</a></li>
+            
+            {% if quotes.has_next %}
+                <li class="page-item"><a class="page-link" href="?pg={{ quotes.next_page_number }}">{{ quotes.next_page_number }}</a></li>
+            {% endif %}
+            <li class="page-item"><a class="page-link" href="?pg={{ quotes.paginator.num_pages }}">>></a></li>
+        </ul>        
+    </nav>
+    <br> <br> <br> <br>  <br> <br> <br> <br>
+    {% endblock content %}

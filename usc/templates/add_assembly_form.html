@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+<title>Update or Add New Assembly</title>
+{% endblock title %}
+{% block content %}
+<div class="container">
+    </br>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 ">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4 text-center ">Add New Assembly</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Post</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 ">
+                <legend class="border-bottom mb-4 text-center">Terms and Conditions</legend>
+            <div class="terms">
+            <p>   We at Ultimate Solutions take pride in the quality of our work and have formed our Terms and conditions with the goal of preserving that quality of work. The outlined Terms and conditions.</p>
+            <ul>
+            <li>Customer to provide all parts and documentation.</li>            
+            <li> Please provide Gerber data and Bill of Material ahead of time, so that there will be sufficient time for stencil, fixture,machine programming, and clearance of engineering queries before job start.</li>
+            <li> If customer request to deliver the shipment quicker than original quoted turn time, additional charges will be applied.</li>
+            <li> Any instruction or change received after production kickoff will be processed as additional / separate rework.</li>
+            <li> Turn time starts from next day after received all materials/Final Bom provided by customer.</li>
+            <li> Kit audit, Jumper Setting and labels are not included in Assembly turn time.</li>
+            <li> Provided quote valid for 30 days. Please contact us if the quote has expired.</li>
+            <li>Turn time is from Monday to Friday. Excluding public holidays.</li>
+            <li>Ultimate Solutions offers a general warranty on all Printed Circuit Boards assembly leaving our facility.</li>        
+            <li>This warranty has an effective period of 90 days from the shipment date of the order.</li>
+            <li> Any modification made to the PCBs assembly after shipment will render this warranty void.</li>
+            <li> Ultimate to perform all work per IPC610D, Class 2 unless specified by the customer.</li>
+            </ul>
+            <p>   Ultimate Solutions reserves the right to change these Terms and Conditions without notice. You are responsible for reviewing these Terms and Conditions before placing an order. By submitting a Purchase Order you will have accepted all of the above Terms and Conditions</p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

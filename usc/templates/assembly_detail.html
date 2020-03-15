@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div class="container">
+  {% if assembly.done == True %}  
+  <div class="card mb-2">
+    <h2 style="text-align:center">Assembly Status</h2>
+    <hr>
+    <div class="card-body mt-2">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+          <div class="container">
+            <div class="mySlides">
+              <div class="numbertext">1 / 4</div>             
+              <img src="{{ assembly.image.url }}" class="rounded-lg shadow-sm" height=360 width=250 style="width:100%">
+            </div>
+            <div class="mySlides">
+              <div class="numbertext">2 / 4</div>
+              <img src="{{ assembly.image1.url }}" class="rounded-lg shadow-sm" height=360 width=250 style="width:100%">
+            </div>
+            <div class="mySlides">
+              <div class="numbertext">3 / 4</div>
+              <img src="{{ assembly.image2.url }}" class="rounded-lg shadow-sm" height=360 width=250 style="width:100%">
+            </div>
+            <div class="mySlides">
+              <div class="numbertext">4 / 4</div>
+              <img src="{{ assembly.image3.url }}" class="rounded-lg shadow-sm" height=360 width=250 style="width:100%">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>            
+            <br>
+            <div class="row">
+              <div class="column">
+                <img class="demo cursor" src="{{ assembly.image1.url }}" height=90 width=30 style="width:90%"
+                  onclick="currentSlide(2)" alt="">
+              </div>
+              <div class="column">
+                <img class="demo cursor" src="{{ assembly.image2.url }}" height=90 width=30 style="width:90%"
+                  onclick="currentSlide(3)" alt="">
+              </div>
+              <div class="column">
+                <img class="demo cursor" src="{{ assembly.image3.url }}" height=90 width=30 style="width:90%"
+                  onclick="currentSlide(4)" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+          <div class="text-left">
+            <h5><b>Assembly Name:</b> {{assembly.assembly}}</h5>
+            <hr>
+            <p><b>Expected Delivery Date:</b> {{assembly.delivery}}</p>
+            <p><b>Requestor:</b> {{assembly.requestor}}</p>
+            <p><b>Quantity :</b> {{assembly.qty}}</p>
+            <p><b>MV L #:</b> {{assembly.mvl_No}}</p>
+            <p><b>Fab Arrived: </b> {{assembly.fab_date}}</p>
+            <p><b>Comments :</b> {{ assembly.status }}</p> <br><br><br>
+            <div class="text-left">
+              <h6> Return to Assembly Home page<a href="{% url 'assemblylist' %}"><b> here</b></a></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <br><br><br><br>
+  <center><h1>Assembly status coming soon!</h1></br>
+  <h4> Return to Assembly Home Page <a href="{% url 'assemblylist' %}"><b>Here</b></a></h4></center>
+  <br><br><br><br><br><br><br><br>
+  {% endif %}
+</div>
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    var captionText = document.getElementById("caption");
+    if (n > slides.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+      slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    captionText.innerHTML = dots[slideIndex - 1].alt;
+  }
+</script>
+
+{% endblock content %}

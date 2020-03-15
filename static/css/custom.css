@@ -1,0 +1,175 @@
+body {
+  font-family: 'Roboto', sans-serif; 
+  height:100%;
+  margin:0;
+  padding:0;           
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+
+.terms{
+font-size:12px;
+letter-spacing:.2em;
+font-weight:light;
+padding-top:35px;      
+}
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+  
+}
+
+}
+.article-img {
+height: 65px;
+width: 65px;
+margin-right: 16px;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: align-self: auto;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* three columns side by side */
+.column {
+  float: center;
+  width: 33.333%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+
+.btn {
+  padding: 3px 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+.my-footer{     
+font-size:12px;      
+color: white;
+letter-spacing: .2em;
+text-transform: uppercase;          
+left:0px;            
+height:80px;
+width:100%;
+background: grey;                  
+}
+
+<
+.navbar{height:80px; 
+   padding-top:20px; 
+   font-size: 14px;
+   letter-spacing: .2em;
+   text-transform: uppercase;
+  
+  }  
+
+.dropdown-item{ 
+font-size: 14px;
+letter-spacing: .2em;
+text-transform: uppercase;
+background: white;
+
+}  
+
+.my_th{
+font-weight: normal;
+height:40px; 
+padding-top:5px; 
+font-size: 14px;
+letter-spacing: .05em;
+text-transform: uppercase;  
+word-wrap:break-word;
+border-collapse: collapse;
+border: 3px solid #c1c1c1;  
+
+}
+.my_table{
+min-width: 400px;
+font-size: 13px;   
+font-weight: normal;
+letter-spacing: .1em;
+border-collapse: collapse;
+word-wrap:break-word;
+border: 3px solid #c1c1c1;
+
+}

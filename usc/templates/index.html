@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-4">
+                <img src="{% static 'images/pic.jpg' %}" alt="Assembly" class="rounded-lg shadow-sm" width="360" height="250">
+            </div>
+            <div class="col-lg-4">
+                <img src="{% static 'images/pic1.jpg' %}" alt="Assembly" class="rounded-lg shadow-sm" width="360" height="250">
+            </div>
+            <div class="col-lg-4">
+                <img src="{% static 'images/pic2.jpg' %}" alt="Assembly" class="rounded-lg shadow-sm" width="360" height="250">
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-10 offset-md-1">
+                <center><p class="h1 text-primary">Welcome to USC Assembly Site!</p></center>
+                <center><p class="h2 mt-3">Check the Status of your Jobs</p></center>
+                <center><p class="h5">USC Assembly Tracker Lets You Keep Track Of Your Assembly and download documents.</p></center>
+                <center><a href="{% url 'assemblylist' %}"><button type="button" class="btn btn-primary btn-lg mt-3 shadow">Let's Get Started</button></a></center>
+            </div>
+        </div>
+    </div>
+    <br>  <br>  <br>  <br><br>  <br>
+{% endblock content %}

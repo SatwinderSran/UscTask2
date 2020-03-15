@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Assembly List Manage - USC Taskmate</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+    </br>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>  
+            </div>
+      
+        {% endfor %}
+    {% endif %}
+    </br>
+
+<div class="text-center"><h3>List of Assemblies</h3></div>
+<div class="table-responsive-lg">
+        <table class="table table-bordered my_table">
+                <thead class="thead-dark my_th">
+                    <tr> 
+                        <th scope="col"><small>Assembly</small></th>                        
+                        <th scope="col"><small>MV_L#</small></th>
+                        <th scope="col"><small>Qty</small></th>
+                        <th scope="col"><small>Fab Arriving</small> </th>                        
+                        <th scope="col"><small>Date Posted</small></th>
+                        <th scope="col"><small>comments</small></th>
+                        <th scope="col"><small>Status</small></th>
+                        <th scope="col"><small>Edit</small></th>
+                        <th scope="col"><small>Delete</small></th>
+                     </tr> 
+                </thead>
+                <tbody>
+                {% if all_assemblies %}
+                    {% for obj in all_assemblies %}                       
+                            <tr>                                 
+                                <td>{{ obj.assembly }}</td>
+                                <td>{{ obj.mvl_No }}</td>                              
+                                <td>{{ obj.qty }}</td>
+                                <td>{{ obj.fab_date }}</td>                                 
+                                <td><small>{{ obj.date_posted }}</small></td> 
+                                <td>{{ obj.comments }}</td>
+                                <td><a href="{% url 'detail' obj.id %}"><button type="button" class="btn btn-success">Status</button></a></td> 
+                                <td ><a href="{% url 'edit_task' obj.id %}"><button type="button" class="btn btn-warning">Edit</button></a></td>
+                                <td><a href="{% url 'delete_task' obj.id %}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                            </tr>                        
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+        </table>
+    </div>
+
+        <nav aria-label="Page navigation example">                
+            <ul class="pagination justify-content-end">
+                <li class="page-item"> <a class="page-link" href="?pg=1"><<</a></li>
+                {% if all_assemblies.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?pg={{ all_assemblies.previous_page_number }}">{{ all_assemblies.previous_page_number }}</a></li>
+                {% endif %}
+
+                <li class="page-item"><a class="page-link" href="?pg={{ all_assemblies.number }}">{{ all_assemblies.number }}</a></li>
+                
+                {% if all_assemblies.has_next %}
+                    <li class="page-item"><a class="page-link" href="?pg={{ all_assemblies.next_page_number }}">{{ all_assemblies.next_page_number }}</a></li>
+                {% endif %}
+                <li class="page-item"><a class="page-link" href="?pg={{ all_assemblies.paginator.num_pages }}">>></a></li>
+            </ul>        
+        </nav>
+    </div>
+    </div> 
+    <br> <br> <br> <br><br>
+{% endblock content %}
