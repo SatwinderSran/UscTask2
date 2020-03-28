@@ -1,18 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-# from django.urls import reverse
+
 
 
 class Assembly(models.Model):
     manage = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    assembly = models.CharField(max_length=12, unique=True)   
-    mvl_No = models.CharField(max_length=12, unique=True, blank=True) 
-    qty = models.PositiveIntegerField(unique=True)  
-    fab_date = models.CharField(max_length=10, unique=True)   
-    comments = models.TextField()
+    assembly = models.CharField(max_length=12)   
+    mvl_No = models.CharField(max_length=12,blank=True) 
+    qty = models.PositiveIntegerField()  
+    fab_date = models.DateField(help_text="Fab arriving date, Please use the following format: <em>MM/DD/YY</em>.")   
+    comments = models.TextField(blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
-    requestor = models.CharField(max_length=100, unique=False,blank=True)  
+    requestor = models.CharField(max_length=100,blank=True)  
     image = models.ImageField(default='default1.png', upload_to='boards', blank=True)
     image1 = models.ImageField(default='default1.png', upload_to='boards', blank=True)
     image2 = models.ImageField(default='default1.png', upload_to='boards', blank=True)
@@ -36,7 +36,7 @@ class Assembly(models.Model):
 
 class Packing(models.Model):
     manage = models.ForeignKey(User, on_delete=models.CASCADE,default=None)    
-    packing_no = models.CharField(max_length=120, unique=False)       
+    packing_no = models.CharField(max_length=120)       
     packing_file = models.FileField(upload_to='Packing', blank=True)
     comment = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
@@ -48,7 +48,7 @@ class Packing(models.Model):
 
 class ShortageReport(models.Model):    
     manage = models.ForeignKey(User, on_delete=models.CASCADE,default=None)             
-    assembly = models.CharField(max_length=50, unique=False)      
+    assembly = models.CharField(max_length=50)      
     shortage_file = models.FileField(upload_to='Shortage', blank=True) 
     comment = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
@@ -61,7 +61,7 @@ class ShortageReport(models.Model):
 
 class Quote(models.Model):
     manage = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    assembly = models.CharField(max_length=50, unique=False)      
+    assembly = models.CharField(max_length=50)      
     quote_file = models.FileField(upload_to='Quote', blank=True)
     comment = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)

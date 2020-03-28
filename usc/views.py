@@ -34,12 +34,12 @@ def addassembly(request):
 
 @login_required
 def assemblylist(request):    
-        all_assemblies = Assembly.objects.filter(manage=request.user)
-        paginator = Paginator(all_assemblies, 5)
-        page = request.GET.get('pg')
-        all_assemblies = paginator.get_page(page)
+    all_assemblies = Assembly.objects.filter(manage=request.user)
+    paginator = Paginator(all_assemblies, 5)
+    page = request.GET.get('pg')
+    all_assemblies = paginator.get_page(page)
 
-        return render(request, 'assembly_list.html', {'all_assemblies': all_assemblies})
+    return render(request, 'assembly_list.html', {'all_assemblies': all_assemblies})
 
 
 @login_required
@@ -73,47 +73,33 @@ def edit_task(request, task_id):
     return render(request, 'edit.html', {'form':form,'task': task})
 
 @login_required
-def packing(request):
-    if  request.user.is_authenticated:          
-        packings = Packing.objects.filter(manage=request.user,active=True)
-        paginator = Paginator(packings, 5)
-        page = request.GET.get('pg')
-        packings = paginator.get_page(page)   
+def packing(request):             
+    packings = Packing.objects.filter(manage=request.user,active=True)
+    paginator = Paginator(packings, 5)
+    page = request.GET.get('pg')
+    packings = paginator.get_page(page)   
                        
     return render(request, 'packings.html', {'packings': packings})
 
 
 @login_required
-def shortage(request):    
-    if  request.user.is_authenticated:          
-        shortages = ShortageReport.objects.filter(manage=request.user,active=True)
-        paginator = Paginator(shortages, 5)
-        page = request.GET.get('pg')
-        shortages = paginator.get_page(page)
+def shortage(request):             
+    shortages = ShortageReport.objects.filter(manage=request.user,active=True)
+    paginator = Paginator(shortages, 5)
+    page = request.GET.get('pg')
+    shortages = paginator.get_page(page)
 
     return render(request, 'shortages.html', {'shortages': shortages}) 
 
 
 
 @login_required
-def quote(request):
-    if  request.user.is_authenticated: 
-        quotes = Quote.objects.filter(manage=request.user,active=True)
-        paginator = Paginator(quotes, 5)
-        page = request.GET.get('pg')
-        quotes = paginator.get_page(page)
+def quote(request):   
+    quotes = Quote.objects.filter(manage=request.user,active=True)
+    paginator = Paginator(quotes, 5)
+    page = request.GET.get('pg')
+    quotes = paginator.get_page(page)
          
     return render(request, 'quotes.html', {'quotes': quotes})
 
 
-# def contact(request):
-#     context = {
-#         'contact_text':"Welcome Contact Page.",
-#         }
-#     return render(request, 'contact.html', context)
-
-# def about(request):
-#     context = {
-#         'about_text':"Welcome About Page.",
-#         }
-#     return render(request, 'about.html', context)

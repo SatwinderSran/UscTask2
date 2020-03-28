@@ -8,9 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', usc_views.index, name='index'),
     path('usc/', include('usc.urls')),
-    path('account/', include('users_app.urls')),
-    # path('contact', usclist_views.contact, name='contact'),
-    # path('about-us', todolist_views.about, name='about'),
+    path('account/', include('users_app.urls')),   
 ]
 
 if settings.DEBUG:
