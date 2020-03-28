@@ -125,13 +125,13 @@ margin-right: 16px;
 
 .my-footer{     
 font-size:12px;      
-color: white;
+color: rgb(41, 33, 33);
 letter-spacing: .2em;
 text-transform: uppercase;          
 left:0px;            
 height:80px;
 width:100%;
-background: rgb(24, 9, 58);                  
+background: rgb(66, 51, 102);                  
 }
 
 
