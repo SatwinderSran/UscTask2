@@ -21,12 +21,12 @@ font-weight:light;
 padding-top:35px;      
 }
 /* Position the image container (needed to position the left and right arrows) */
-.container {
+/* .container {
   position: relative;
   
-}
+} */
 
-}
+
 .article-img {
 height: 65px;
 width: 65px;
@@ -134,7 +134,7 @@ width:100%;
 background: rgb(66, 51, 102);                  
 }
 
-.navbar{height:80px; 
+.navbar{
    padding-top:20px; 
    font-size: 14px;
    letter-spacing: .2em;
