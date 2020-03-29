@@ -129,7 +129,7 @@ color: rgb(41, 33, 33);
 letter-spacing: .2em;
 text-transform: uppercase;          
 left:0px;            
-height:100px;
+height:80px;
 width:100%;
 background: rgb(66, 51, 102);                  
 }
@@ -138,8 +138,7 @@ background: rgb(66, 51, 102);
    padding-top:20px; 
    font-size: 14px;
    letter-spacing: .2em;
-   text-transform: uppercase;
-  
+   text-transform: uppercase;  
   }  
 
 .dropdown-item{ 
