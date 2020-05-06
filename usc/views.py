@@ -28,7 +28,7 @@ def addassembly(request):
             messages.error(request,("Something went wrong Pls try again!"))
             return redirect('assemblylist')
     else:
-        form = AssemblyForm(request.POST or None)
+        form = AssemblyForm()
         return render(request, 'add_assembly_form.html', {'form': form})
 
 
